@@ -8,7 +8,7 @@
 (menu-bar-mode t)
 
 ;;; You email address
-(setq user-mail-address "xiaohanyu1988@gmail.com")
+(setq user-mail-address "fabledcool@gmail.com")
 
 ;;; Calendar settings
 ;; you can use M-x sunrise-sunset to get the sun time
@@ -84,3 +84,7 @@ inversion of gas-comment-region"
   (if parent (put name 'cl-struct-include parent))
   (if print-auto (put name 'cl-struct-print print-auto))
   (if docstring (put name 'structure-documentation docstring)))
+
+(setq evil-default-state 'emacs)
+
+(global-set-key [f8] 'neotree-toggle)
