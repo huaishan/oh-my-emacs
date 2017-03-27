@@ -88,3 +88,53 @@ inversion of gas-comment-region"
 (setq evil-default-state 'emacs)
 
 (global-set-key [f8] 'neotree-toggle)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-emphasis-alist
+   (quote
+    (("*" bold)
+     ("/" italic)
+     ("_" underline)
+     ("=" org-verbatim verbatim)
+     ("~" org-code verbatim)
+     ("+"
+      (:strike-through t)))))
+ '(package-selected-packages (quote (rainbow-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; From https://github.com/djmijares/emacs-setup/blob/master/mac.el
+
+;; change command to meta, ignore option key
+(setq mac-option-modifier 'meta)
+;;(setq mac-command-modifier 'meta)
+(setq ns-function-modifier 'hyper)
+
+;; make sure path is correct when launched as application
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+(push "/usr/local/bin" exec-path)
+
+;; keybinding to toggle full screen mode
+(global-set-key (quote [M-f10]) (quote ns-toggle-fullscreen))
+
+;; Move to trash when deleting stuff
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.Trash/emacs")
+
+(provide 'init-mac)
+
+(setq
+    backup-by-copying t      ; don't clobber symlinks
+    backup-directory-alist
+	'(("." . "~/.emacs_backups"))    ; don't litter my fs tree
+	delete-old-versions t
+	kept-new-versions 6
+	kept-old-versions 2
+	version-control t)       ; use versioned backups
